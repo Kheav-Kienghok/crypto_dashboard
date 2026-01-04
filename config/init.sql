@@ -1,12 +1,6 @@
 -- Create user
 CREATE USER crypto WITH PASSWORD 'crypto123';
 
--- Create database
-CREATE DATABASE cryptodb OWNER crypto;
-
--- Connect to database
-\c cryptodb
-
 -- Prices table
 CREATE TABLE IF NOT EXISTS crypto_prices (
     symbol TEXT NOT NULL,
@@ -24,4 +18,3 @@ CREATE TABLE IF NOT EXISTS crypto_prediction (
 -- Permissions
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO crypto;
 GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO crypto;
-

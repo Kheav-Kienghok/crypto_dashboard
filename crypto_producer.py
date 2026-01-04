@@ -24,9 +24,10 @@ while True:
             'timestamp': time.strftime('%Y-%m-%d %H:%M:%S'),
             'price': price_data['USD']
         }
-        producer.send('cryptoPrices', value=record)
+        future = producer.send('cryptoPrices', value=record)
+        future.get(timeout=10)
         print(f"Sent: {record}")
-    
+
     # Wait 2 minutes before sending next batch
     time.sleep(120)
 
